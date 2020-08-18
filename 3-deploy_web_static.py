@@ -14,7 +14,7 @@ def do_pack():
     pathfile = 'web_static_{}{}{}{}{}{}.tgz\
 '.format(date.year, date.month, date.day,
          date.hour, date.minute, date.second)
-    tarfile = local('tar -cvzf versions/{}'.format(pathfile), capture=True)
+    tarfile = local('tar -cvzf {} web_static'.format(pathfile), capture=True)
     if tarfile.succeeded:
         return pathfile
     return None
