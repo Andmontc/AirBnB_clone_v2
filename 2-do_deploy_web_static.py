@@ -14,7 +14,7 @@ def do_deploy(archive_path):
     file_local = archive_path.split('/')[-1]
     file_server = file_local.split('.')[0]
     # Upload the file
-    if put(archive_path, "/tmp/{}".format(file_local)).failed is True:
+    if put('{}'.format(archive_path), '/tmp').failed is True:
         status = False
     # Create the folder
     if run("mkdir -p /data/web_static/releases/{}/".
@@ -25,7 +25,7 @@ def do_deploy(archive_path):
            format(file_local, file_server)).failed is True:
         status = False
     # Delete the file from tmp
-    if run("rm /tmp/{}".format(file_local)).failed is True:
+    if run("rm -rf /tmp/{}".format(file_local)).failed is True:
         status = False
     # Move the file
     if run("mv /data/web_static/releases/{}/web_static/* "
