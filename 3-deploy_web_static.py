@@ -5,13 +5,14 @@ from fabric.api import *
 import os
 
 env.hosts = ['34.75.200.174', '34.229.85.234']
+retpack = None
 
 
 def do_pack():
     """ function that packs archives """
     local('mkdir -p versions')
     date = datetime.now()
-    pathfile = 'web_static_{}{}{}{}{}{}.tgz\
+    pathfile = 'versions/web_static_{}{}{}{}{}{}.tgz\
 '.format(date.year, date.month, date.day,
          date.hour, date.minute, date.second)
     tarfile = local('tar -cvzf {} web_static'.format(pathfile), capture=True)
@@ -47,6 +48,7 @@ def do_deploy(archive_path):
 
 def deploy():
     """ deploy the functions """
+    global retpack
     retpack = do_pack()
     if retpack is None:
         return False
