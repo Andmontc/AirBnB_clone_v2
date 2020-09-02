@@ -47,14 +47,22 @@ button:hover {
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     padding-top: 20px;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-bottom: 10px;
     width: 91.5%;
     max-height: 300px;
     display: none;
     z-index: 1;
+    overflow: auto;
 }
 
+.popover::-webkit-scrollbar {
+    display: block;
+}
+
+.locations:hover .popover {
+    display: block;
+}
 
 .amenities .popover{
     float: right;
@@ -62,11 +70,13 @@ button:hover {
     width: 97%;
 }
 
+.amenities:hover .popover{
+    display: block;
+}
 
 li {
     color: black;
     list-style: none;
-    margin-bottom: 20px;
 }
 
 h3 {
@@ -76,6 +86,13 @@ h3 {
     padding-left: 40px;
 }
 
+h4 {
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
+    padding-left: 20px;
+    margin-top: -10px;
+}
 
 h2 {
     color: black;
