@@ -22,6 +22,7 @@ def state_and_state(id=None):
             state = states[idgiven]
     return render_template('9-states.html', id=id, state=state, states=states)
 
+
 @app.teardown_appcontext
 def teardown(self):
     """ Close Sql session """
