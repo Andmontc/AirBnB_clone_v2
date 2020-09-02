@@ -17,9 +17,9 @@ def state_and_state(id=None):
     state = None
     states = storage.all(State)
     if id:
-        idgiven = "State." + id
-        if idgiven in states.keys():
-            state = states[idgiven]
+        stateid = "State." + id
+        if stateid in states.keys():
+            state = states[stateid]
     return render_template('9-states.html', id=id, state=state, states=states)
 
 
